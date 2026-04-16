@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✦ Química Orgânica & Soluções — Guia EM</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --peach:      #fde8d8;
+  --peach-deep: #f4a97a;
+  --sage:       #d4eadd;
+  --sage-deep:  #7dc4a0;
+  --lilac:      #e8dff5;
+  --lilac-deep: #a98cd8;
+  --sky:        #d8eef8;
+  --sky-deep:   #6bb8e8;
+  --rose:       #fdd8e4;
+  --rose-deep:  #e87aa0;
+  --ivory:      #fdf9f5;
+  --cream:      #faf5ef;
+  --text:       #3a2e35;
+  --soft:       #7a6470;
+  --white:      #ffffff;
+  --sh:         0 4px 28px rgba(140,80,100,.10);
+  --sh-sm:      0 2px 12px rgba(140,80,100,.07);
+  --r:          22px;
+  --r-sm:       12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--ivory);
+  color:var(--text);
+  line-height:1.75;
+  font-size:15px;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--ivory);}
+::-webkit-scrollbar-thumb{background:var(--peach-deep);border-radius:10px;}
+
+/* ── HEADER ── */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(253,249,245,.90);
+  backdrop-filter:blur(16px);
+  border-bottom:1.5px solid var(--peach);
+  padding:0 1.5rem;
+}
+.hdr{
+  max-width:1120px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:58px;gap:1rem;
+}
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;
+  color:var(--text);white-space:nowrap;
+  display:flex;align-items:center;gap:.5rem;
+}
+.logo em{color:var(--lilac-deep);font-style:normal;}
+
+nav{display:flex;gap:.3rem;flex-wrap:wrap;}
+nav a{
+  font-size:.73rem;font-weight:700;letter-spacing:.02em;
+  text-decoration:none;color:var(--soft);
+  background:var(--cream);border:1.5px solid transparent;
+  padding:.28rem .75rem;border-radius:50px;
+  transition:all .18s;white-space:nowrap;
+}
+nav a:hover{background:var(--lilac);border-color:var(--lilac-deep);color:var(--text);}
+
+/* ── LAYOUT ── */
+.wrapper{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  max-width:1120px;margin:0 auto;
+  gap:2rem;padding:2rem 1.25rem 5rem;
+}
+@media(max-width:860px){.wrapper{grid-template-columns:1fr;} .sidebar{display:none;}}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  position:sticky;top:80px;
+  align-self:start;height:calc(100vh - 100px);
+  overflow-y:auto;
+  background:var(--white);border-radius:var(--r);
+  box-shadow:var(--sh-sm);padding:1.25rem;
+}
+.sidebar::-webkit-scrollbar{width:3px;}
+.sidebar h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;margin-bottom:.85rem;color:var(--soft);
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.sb-group{margin-bottom:1rem;}
+.sb-group-title{
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--soft);
+  padding:.2rem 0;margin-bottom:.35rem;
+  border-bottom:1px solid var(--peach);
+}
+.sb-link{
+  display:block;font-size:.78rem;font-weight:600;
+  color:var(--soft);text-decoration:none;
+  padding:.28rem .55rem;border-radius:8px;
+  transition:all .15s;margin-bottom:.1rem;
+}
+.sb-link:hover{background:var(--peach);color:var(--text);}
+
+/* ── CONTENT ── */
+.content{display:flex;flex-direction:column;gap:2rem;}
+
+/* ── HERO ── */
+.hero{
+  border-radius:var(--r);overflow:hidden;
+  background:linear-gradient(135deg,#fde8d8 0%,#e8dff5 50%,#d4eadd 100%);
+  padding:2.75rem 2rem 2.25rem;
+  box-shadow:var(--sh);position:relative;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,.5) 0%,transparent 60%);
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.15;
+  margin-bottom:.6rem;
+}
+.hero p{color:var(--soft);font-size:.92rem;max-width:520px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem;}
+.tag{
+  font-size:.7rem;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;padding:.3rem .85rem;
+  border-radius:50px;
+}
+.t-p{background:var(--peach);color:#9a4a1a;}
+.t-l{background:var(--lilac);color:#5a3a90;}
+.t-s{background:var(--sage);color:#2a6a48;}
+.t-k{background:var(--sky);color:#1a5a8a;}
+.t-r{background:var(--rose);color:#8a2a50;}
+
+/* ── SECTION CARD ── */
+.sc{background:var(--white);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;}
+.sc-head{
+  padding:1.25rem 1.6rem 1rem;
+  display:flex;align-items:center;gap:.85rem;
+  border-bottom:1.5px solid var(--ivory);
+}
+.sc-icon{
+  width:42px;height:42px;border-radius:13px;
+  display:grid;place-items:center;font-size:1.3rem;flex-shrink:0;
+}
+.sc-head h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;
+}
+.sc-body{padding:1.4rem 1.6rem;}
+
+/* ── ACCORDION ── */
+.acc{margin-bottom:.6rem;border-radius:var(--r-sm);overflow:hidden;border:1.5px solid transparent;}
+.acc.ac-p{border-color:#f4c9a8;}
+.acc.ac-l{border-color:#c8b8f0;}
+.acc.ac-s{border-color:#a8d8c0;}
+.acc.ac-k{border-color:#a8d0f0;}
+.acc.ac-r{border-color:#f0a8c8;}
+
+.acc-btn{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1rem;
+  font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:700;
+  color:var(--text);text-align:left;
+  transition:background .15s;
+}
+.acc.ac-p .acc-btn:hover,.acc.ac-p .acc-btn.open{background:#fff4ec;}
+.acc.ac-l .acc-btn:hover,.acc.ac-l .acc-btn.open{background:#f4f0fc;}
+.acc.ac-s .acc-btn:hover,.acc.ac-s .acc-btn.open{background:#f0fcf6;}
+.acc.ac-k .acc-btn:hover,.acc.ac-k .acc-btn.open{background:#f0f8fc;}
+.acc.ac-r .acc-btn:hover,.acc.ac-r .acc-btn.open{background:#fcf0f5;}
+
+.acc-arrow{font-size:.75rem;transition:transform .25s;flex-shrink:0;}
+.acc-btn.open .acc-arrow{transform:rotate(180deg);}
+
+.acc-body{
+  display:none;padding:.1rem 1rem 1rem;
+  font-size:.85rem;color:var(--soft);
+  border-top:1px solid var(--ivory);
+}
+.acc-body.show{display:block;}
+
+/* ── CONTENT BITS ── */
+h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:600;
+  color:var(--text);margin:1.2rem 0 .5rem;
+}
+h3:first-child{margin-top:0;}
+p{margin-bottom:.65rem;color:var(--soft);}
+p strong{color:var(--text);}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin:.7rem 0;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:.7rem 0;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:.7rem 0;}
+@media(max-width:600px){.grid2,.grid3,.grid4{grid-template-columns:1fr;}}
+
+.card{border-radius:var(--r-sm);padding:.9rem 1rem;font-size:.83rem;}
+.card h4{font-family:'Cormorant Garamond',serif;font-size:.98rem;margin-bottom:.3rem;color:var(--text);}
+.card p{margin:0;font-size:.8rem;}
+.cp{background:#fff8f4;border:1.5px solid var(--peach);}
+.cl{background:#f8f5fe;border:1.5px solid var(--lilac);}
+.cs{background:#f4fdf8;border:1.5px solid var(--sage);}
+.ck{background:#f4f8fd;border:1.5px solid var(--sky);}
+.cr{background:#fdf4f8;border:1.5px solid var(--rose);}
+
+.label{
+  display:inline-block;font-size:.66rem;font-weight:800;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:.12rem .55rem;border-radius:50px;margin-bottom:.35rem;
+}
+.lp{background:var(--peach);color:#9a4a1a;}
+.ll{background:var(--lilac);color:#5a3a90;}
+.ls{background:var(--sage);color:#2a6a48;}
+.lk{background:var(--sky);color:#1a5a8a;}
+.lr{background:var(--rose);color:#8a2a50;}
+.ly{background:#fff4c0;color:#7a5a00;}
+
+.formula{
+  display:inline-block;font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1rem;
+  background:#f4f0fc;border:1px solid var(--lilac);
+  padding:.15rem .55rem;border-radius:7px;color:#5a3a90;
+}
+.formula-box{
+  background:linear-gradient(135deg,#fdf4f8,#f4f0fc);
+  border:1.5px solid var(--lilac);
+  border-radius:var(--r-sm);padding:.85rem 1.1rem;
+  text-align:center;margin:.6rem 0;font-size:.9rem;
+}
+.formula-box .main{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-style:italic;color:#5a3a90;margin-bottom:.2rem;
+}
+.formula-box .desc{font-size:.78rem;color:var(--soft);}
+
+.step-box{
+  background:linear-gradient(135deg,#fff8f4,#f8f5fe);
+  border:1.5px solid var(--peach);
+  border-radius:var(--r-sm);
+  padding:1rem 1.15rem;margin:.8rem 0;font-size:.85rem;
+}
+.step-title{font-weight:800;color:var(--text);margin-bottom:.5rem;font-size:.88rem;}
+.step-box ol{padding-left:1.3rem;color:var(--soft);}
+.step-box ol li{margin-bottom:.3rem;}
+.result{
+  margin-top:.55rem;padding:.45rem .8rem;
+  background:var(--white);border-radius:8px;
+  font-weight:700;color:var(--text);
+  border-left:3px solid var(--lilac-deep);
+  font-size:.85rem;
+}
+
+.table-wrap{overflow-x:auto;margin:.7rem 0;}
+table{width:100%;border-collapse:collapse;font-size:.8rem;}
+th{
+  padding:.5rem .8rem;text-align:left;font-weight:700;
+  background:var(--lilac);color:var(--text);
+}
+th:first-child{border-radius:var(--r-sm) 0 0 0;}
+th:last-child{border-radius:0 var(--r-sm) 0 0;}
+td{padding:.45rem .8rem;border-bottom:1px solid #f0ecfa;color:var(--soft);}
+tr:nth-child(even) td{background:#faf8fe;}
+tr:last-child td{border-bottom:none;}
+
+.pill-row{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0;}
+.pill{
+  background:var(--cream);border:1.5px solid var(--peach);
+  border-radius:50px;padding:.25rem .9rem;
+  font-size:.78rem;font-weight:600;color:var(--text);
+}
+
+.divider{
+  border:none;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--peach),var(--lilac),transparent);
+  margin:1.1rem 0;
+}
+
+.tip{
+  background:#fff8f4;border-left:3px solid var(--peach-deep);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:.6rem .9rem;margin:.6rem 0;
+  font-size:.82rem;color:var(--soft);
+}
+.tip strong{color:var(--text);}
+
+.highlight{
+  background:linear-gradient(135deg,#e8dff5,#d8eef8);
+  border-radius:var(--r-sm);padding:.9rem 1.1rem;
+  margin:.6rem 0;font-size:.85rem;
+}
+
+/* ── QUIZ ── */
+.quiz-wrap{display:flex;flex-direction:column;gap:.65rem;}
+.qq{
+  background:var(--cream);border:1.5px solid var(--peach);
+  border-radius:var(--r-sm);padding:.95rem 1.1rem;transition:border-color .2s;
+}
+.qq.ok{border-color:var(--sage-deep);background:#f4fdf8;}
+.qq.err{border-color:var(--rose-deep);background:#fdf4f8;}
+.qq .qt{font-weight:700;color:var(--text);margin-bottom:.55rem;font-size:.88rem;}
+.opts{display:flex;flex-direction:column;gap:.3rem;}
+.opts label{
+  display:flex;align-items:center;gap:.5rem;cursor:pointer;
+  font-size:.83rem;color:var(--soft);
+  padding:.35rem .55rem;border-radius:8px;transition:background .13s;
+}
+.opts label:hover{background:var(--lilac);color:var(--text);}
+.opts input[type=radio]{accent-color:var(--lilac-deep);}
+.fb{
+  font-size:.78rem;font-weight:700;margin-top:.45rem;
+  padding:.3rem .65rem;border-radius:8px;display:none;
+}
+.fb.show{display:block;}
+.fb.ok{background:var(--sage);color:#2a6a48;}
+.fb.err{background:var(--rose);color:#8a2a50;}
+.quiz-btn{
+  align-self:flex-start;
+  background:linear-gradient(135deg,var(--peach-deep),var(--lilac-deep));
+  color:var(--white);border:none;cursor:pointer;
+  padding:.6rem 1.65rem;border-radius:50px;
+  font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:800;
+  box-shadow:0 3px 14px rgba(170,100,200,.28);
+  transition:transform .15s,box-shadow .15s;margin-top:.4rem;
+}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(170,100,200,.38);}
+.score{font-size:.88rem;font-weight:700;color:var(--soft);margin-top:.35rem;display:none;}
+.score.show{display:block;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div class="logo">✦ <em>Química Orgânica</em> & Soluções</div>
+    <nav>
+      <a href="#organica">Org. Carbono</a>
+      <a href="#hidro">Hidrocarbonetos</a>
+      <a href="#funcoes">Funções Org.</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#concentracao">Concentração</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h3>Índice</h3>
+
+  <div class="sb-group">
+    <div class="sb-group-title">⚗️ Química Orgânica</div>
+    <a class="sb-link" href="#hibrid">Hibridização & Geometria</a>
+    <a class="sb-link" href="#formulas">Tipos de Fórmulas</a>
+    <a class="sb-link" href="#cadeia">Classificação de Cadeia</a>
+    <a class="sb-link" href="#hidro">Hidrocarbonetos</a>
+    <a class="sb-link" href="#iupac">Nomenclatura IUPAC</a>
+    <a class="sb-link" href="#radicais">Radicais Orgânicos</a>
+    <a class="sb-link" href="#petroleo">Petróleo & Derivados</a>
+    <a class="sb-link" href="#benzeno">Benzeno — Orto/Meta/Para</a>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-group-title">🌸 Funções Org.</div>
+    <a class="sb-link" href="#oxigenadas">Funções Oxigenadas</a>
+    <a class="sb-link" href="#eteres">Nomenclatura de Éteres</a>
+    <a class="sb-link" href="#haletos">Haletos Orgânicos</a>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-group-title">🧪 Soluções</div>
+    <a class="sb-link" href="#solucoes">Misturas & Coloides</a>
+    <a class="sb-link" href="#coef">Coeficiente de Solubilidade</a>
+    <a class="sb-link" href="#classif">Classificação de Soluções</a>
+    <a class="sb-link" href="#condut">Condutibilidade Elétrica</a>
+    <a class="sb-link" href="#termo">Termoquímica</a>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-group-title">📐 Concentração</div>
+    <a class="sb-link" href="#concentracao">Concentração Comum</a>
+    <a class="sb-link" href="#molaridade">Molaridade</a>
+    <a class="sb-link" href="#fracaomolar">Fração Molar</a>
+    <a class="sb-link" href="#titulo">Título & %</a>
+    <a class="sb-link" href="#ppm">ppm / ppb / ppt</a>
+    <a class="sb-link" href="#molalidade">Molalidade</a>
+    <a class="sb-link" href="#diluicao">Diluição & Mistura</a>
+  </div>
+</aside>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Química Orgânica,<br>Soluções & Concentração ✨</h1>
+  <p>Guia completo para o ENEM e vestibulares — tudo que cai na prova, com fórmulas e exemplos resolvidos.</p>
+  <div class="tag-row">
+    <span class="tag t-p">⚗️ Orgânica</span>
+    <span class="tag t-l">🧬 Hidrocarbonetos</span>
+    <span class="tag t-s">🌸 Funções</span>
+    <span class="tag t-k">🧪 Soluções</span>
+    <span class="tag t-r">📐 Concentração</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ QUÍMICA ORGÂNICA ═══════════════════════════════ -->
+<div class="sc" id="organica">
+  <div class="sc-head">
+    <div class="sc-icon" style="background:var(--peach)">⚗️</div>
+    <h2>Química Orgânica — Ligações do Carbono</h2>
+  </div>
+  <div class="sc-body">
+
+    <!-- HIBRIDIZAÇÃO -->
+    <div id="hibrid">
+      <h3>Hibridização & Geometria</h3>
+      <div class="grid3">
+        <div class="card cp">
+          <span class="label lp">sp³</span>
+          <h4>Carbono Saturado</h4>
+          <p>4 ligações simples. Geometria <strong>tetraédrica</strong>. Ângulo ≈ 109,5°. Ex: alcanos, CH₄.</p>
+        </div>
+        <div class="card cl">
+          <span class="label ll">sp²</span>
+          <h4>Carbono Dupla</h4>
+          <p>1 dupla + 2 simples. Geometria <strong>trigonal plana</strong>. Ângulo ≈ 120°. Ex: alcenos, benzeno.</p>
+        </div>
+        <div class="card cs">
+          <span class="label ls">sp</span>
+          <h4>Carbono Tripla</h4>
+          <p>1 tripla + 1 simples. Geometria <strong>linear</strong>. Ângulo = 180°. Ex: alcinos.</p>
+        </div>
+      </div>
+
+      <div class="tip"><strong>💡 Prova:</strong> sp³ = sem dupla/tripla | sp² = tem 1 dupla | sp = tem 1 tripla. O número de ligações π: sp³=0, sp²=1, sp=2.</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- FÓRMULAS -->
+    <div id="formulas">
+      <h3>Tipos de Fórmulas Orgânicas</h3>
+      <div class="grid2">
+        <div class="card cp">
+          <h4>Molecular</h4>
+          <p>Mostra quantos átomos de cada elemento. Ex: C₂H₆O</p>
+        </div>
+        <div class="card cl">
+          <h4>Estrutural Completa (Bastão)</h4>
+          <p>Mostra todas as ligações C–H e C–C explicitamente.</p>
+        </div>
+        <div class="card cs">
+          <h4>Estrutural Simplificada</h4>
+          <p>Agrupa H com seu C. Ex: CH₃–CH₂–OH</p>
+        </div>
+        <div class="card ck">
+          <h4>Linha (Esqueletal)</h4>
+          <p>Só mostra o esqueleto de C com traços. Cada vértice/extremo = CH₃ ou CH₂.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CLASSIFICAÇÃO DE CADEIA -->
+    <div id="cadeia">
+      <h3>Classificação da Cadeia Carbônica</h3>
+      <div class="grid2">
+        <div class="card cp">
+          <span class="label lp">Quanto ao fechamento</span>
+          <p><strong>Aberta (Acíclica):</strong> Cadeia não fecha. Tem extremidades livres.<br>
+          <strong>Fechada (Cíclica):</strong> Cadeia forma anel.</p>
+        </div>
+        <div class="card cl">
+          <span class="label ll">Quanto à ramificação</span>
+          <p><strong>Normal/Linear:</strong> Todos os C em sequência contínua.<br>
+          <strong>Ramificada:</strong> Tem desvio/ramal saindo da cadeia principal.</p>
+        </div>
+        <div class="card cs">
+          <span class="label ls">Quanto à saturação</span>
+          <p><strong>Saturada:</strong> Só ligações simples C–C.<br>
+          <strong>Insaturada:</strong> Tem dupla (C=C) ou tripla (C≡C).</p>
+        </div>
+        <div class="card ck">
+          <span class="label lk">Quanto à natureza</span>
+          <p><strong>Homogênea:</strong> Só átomos de C e H na cadeia.<br>
+          <strong>Heterogênea:</strong> Tem heteroátomo (O, N, S…) na cadeia.</p>
+        </div>
+      </div>
+
+      <div class="tip">
+        <strong>Carbono Primário:</strong> ligado a 1 C | <strong>Secundário:</strong> 2 C | <strong>Terciário:</strong> 3 C | <strong>Quaternário:</strong> 4 C. O carbono quaternário <em>nunca</em> pode ter H.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ HIDROCARBONETOS ═══════════════════════════════ -->
+<div class="sc" id="hidro">
+  <div class="sc-head">
+    <div class="sc-icon" style="background:var(--sage)">🧬</div>
+    <h2>Hidrocarbonetos & Nomenclatura IUPAC</h2>
+  </div>
+  <div class="sc-body">
+
+    <div class="acc ac-s" id="iupac">
+      <button class="acc-btn" onclick="tog(this)">
+        📏 Nomenclatura IUPAC — Regras Gerais <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>A nomenclatura IUPAC segue a estrutura:<br>
+        <strong>Prefixo (nº de C) + Infixo (tipo de ligação) + Sufixo (função)</strong></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nº de Carbonos</th><th>Prefixo</th><th>Nº de Carbonos</th><th>Prefixo</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>met-</td><td>6</td><td>hex-</td></tr>
+              <tr><td>2</td><td>et-</td><td>7</td><td>hept-</td></tr>
+              <tr><td>3</td><td>prop-</td><td>8</td><td>oct-</td></tr>
+              <tr><td>4</td><td>but-</td><td>9</td><td>non-</td></tr>
+              <tr><td>5</td><td>pent-</td><td>10</td><td>dec-</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid3">
+          <div class="card cs"><span class="label ls">Infixo</span><p><strong>-an-</strong> ligação simples<br><strong>-en-</strong> dupla<br><strong>-in-</strong> tripla</p></div>
+          <div class="card cp"><span class="label lp">Sufixo hidrocarboneto</span><p><strong>-o</strong> para alcanos, alcenos e alcinos</p></div>
+          <div class="card cl"><span class="label ll">Exemplo</span><p>C₄H₈ com dupla → <strong>but-1-eno</strong></p></div>
+        </div>
+
+        <p style="margin-top:.7rem"><strong>Regras de numeração:</strong></p>
+        <ol style="padding-left:1.3rem; color:var(--soft); font-size:.83rem;">
+          <li>Escolher a cadeia principal: a <strong>mais longa</strong> que contenha a insaturação ou grupo principal.</li>
+          <li>Numerar pelo lado que dê o <strong>menor locante</strong> à insaturação ou ramificação.</li>
+          <li>Nomear ramificações (radicais) em ordem alfabética antes do nome principal.</li>
+          <li>Usar prefixos di-, tri-, tetra- para ramificações iguais.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="acc ac-p">
+      <button class="acc-btn" onclick="tog(this)">
+        🏗️ Famílias de Hidrocarbonetos <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="grid2">
+          <div class="card cp"><span class="label lp">Alcanos</span><h4>CₙH₂ₙ₊₂</h4><p>Só ligações simples. Saturados. Ex: metano CH₄, etano C₂H₆. Combustão completa: CO₂ + H₂O.</p></div>
+          <div class="card cs"><span class="label ls">Alcenos</span><h4>CₙH₂ₙ</h4><p>1 dupla ligação. Ex: eteno C₂H₄ (etileno). Reação típica: adição.</p></div>
+          <div class="card cl"><span class="label ll">Alcinos</span><h4>CₙH₂ₙ₋₂</h4><p>1 tripla ligação. Ex: etino C₂H₂ (acetileno). Reação típica: adição.</p></div>
+          <div class="card ck"><span class="label lk">Alcadienos</span><h4>CₙH₂ₙ₋₂</h4><p>2 duplas. Ex: 1,3-butadieno (borracha sintética).</p></div>
+          <div class="card cr"><span class="label lr">Cicloalcanos</span><h4>CₙH₂ₙ</h4><p>Anel saturado. Ex: ciclopentano, ciclohexano.</p></div>
+          <div class="card cp"><span class="label lp">Benzeno & Aromáticos</span><h4>C₆H₆</h4><p>Anel com 3 duplas alternadas (ressonância). Reação típica: substituição.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RADICAIS -->
+    <div class="acc ac-l" id="radicais">
+      <button class="acc-btn" onclick="tog(this)">
+        🔗 Radicais Orgânicos <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Radical</th><th>Fórmula</th><th>Origem</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Metil</strong></td><td>–CH₃</td><td>Metano</td></tr>
+              <tr><td><strong>Etil</strong></td><td>–CH₂–CH₃</td><td>Etano</td></tr>
+              <tr><td><strong>Propil</strong></td><td>–CH₂–CH₂–CH₃</td><td>Propano (ligação na ponta)</td></tr>
+              <tr><td><strong>Isopropil</strong></td><td>–CH(CH₃)₂</td><td>Propano (ligação no C central)</td></tr>
+              <tr><td><strong>Butil</strong></td><td>–(CH₂)₃–CH₃</td><td>Butano</td></tr>
+              <tr><td><strong>Isobutil</strong></td><td>–CH₂–CH(CH₃)₂</td><td>Isobutano, ligação na ponta</td></tr>
+              <tr><td><strong>sec-Butil</strong></td><td>–CH(CH₃)–CH₂–CH₃</td><td>Butano, ligação no C2</td></tr>
+              <tr><td><strong>terc-Butil</strong></td><td>–C(CH₃)₃</td><td>Butano, ligação no C quaternário</td></tr>
+              <tr><td><strong>Fenil</strong></td><td>–C₆H₅</td><td>Benzeno</td></tr>
+              <tr><td><strong>Benzil</strong></td><td>–CH₂–C₆H₅</td><td>Tolueno</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PETRÓLEO -->
+    <div class="acc ac-k" id="petroleo">
+      <button class="acc-btn" onclick="tog(this)">
+        🛢️ Petróleo — Extração, Refino & Derivados <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p><strong>Petróleo</strong> é uma mistura de hidrocarbonetos líquidos, gasosos e sólidos, de origem fóssil.</p>
+        <p><strong>Refino</strong> = Destilação Fracionada: separa por ponto de ebulição (PE). Quanto menor a cadeia → menor PE → sai primeiro (topo da torre).</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fração</th><th>Nº de Carbonos</th><th>Uso Principal</th></tr></thead>
+            <tbody>
+              <tr><td>Gás natural / GLP</td><td>C₁–C₄</td><td>Gás de cozinha, combustível</td></tr>
+              <tr><td>Gasolina</td><td>C₅–C₁₂</td><td>Combustível automotivo</td></tr>
+              <tr><td>Nafta</td><td>C₆–C₁₀</td><td>Petroquímica, plásticos</td></tr>
+              <tr><td>Querosene</td><td>C₁₁–C₁₄</td><td>Aviação, iluminação</td></tr>
+              <tr><td>Diesel</td><td>C₁₄–C₁₈</td><td>Caminhões, ônibus</td></tr>
+              <tr><td>Óleo lubrificante</td><td>C₁₈–C₂₅</td><td>Lubrificação de motores</td></tr>
+              <tr><td>Parafina / Asfalto</td><td>>C₂₅</td><td>Velas, pavimentação</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tip"><strong>Cracking:</strong> quebra moléculas grandes em menores (ex: gasolina) usando calor/catalisador. <strong>Reforma:</strong> converte cadeias lineares em aromáticas para aumentar octanagem.</div>
+      </div>
+    </div>
+
+    <!-- BENZENO -->
+    <div class="acc ac-r" id="benzeno">
+      <button class="acc-btn" onclick="tog(this)">
+        🔴 Benzeno — Posições Orto, Meta e Para <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>No anel benzênico com <strong>2 substituintes</strong>, a posição relativa entre eles é nomeada:</p>
+        <div class="grid3">
+          <div class="card cr">
+            <span class="label lr">Orto (o-)</span>
+            <h4>Posição 1,2</h4>
+            <p>Substituintes em carbonos <strong>adjacentes</strong> (ao lado). Ângulo ≈ 60°.</p>
+          </div>
+          <div class="card cp">
+            <span class="label lp">Meta (m-)</span>
+            <h4>Posição 1,3</h4>
+            <p>Substituintes <strong>separados por 1 carbono</strong>. Ângulo ≈ 120°.</p>
+          </div>
+          <div class="card cs">
+            <span class="label ls">Para (p-)</span>
+            <h4>Posição 1,4</h4>
+            <p>Substituintes <strong>opostos</strong> no anel. Ângulo = 180°.</p>
+          </div>
+        </div>
+        <div class="tip">
+          <strong>Ex:</strong> diclorobenzeno: o-diclorobenzeno (1,2) | m-diclorobenzeno (1,3) | p-diclorobenzeno (1,4).<br>
+          <strong>Grupos orto/para dirigentes:</strong> –OH, –NH₂, –CH₃ (ativam o anel).<br>
+          <strong>Grupos meta dirigentes:</strong> –NO₂, –COOH, –CHO (desativam o anel).
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ FUNÇÕES ORGÂNICAS ═══════════════════════════════ -->
+<div class="sc" id="funcoes">
+  <div class="sc-head">
+    <div class="sc-icon" style="background:var(--rose)">🌸</div>
+    <h2>Funções Orgânicas</h2>
+  </div>
+  <div class="sc-body">
+
+    <div class="acc ac-r" id="oxigenadas">
+      <button class="acc-btn" onclick="tog(this)">
+        🌺 Funções Oxigenadas <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="grid2">
+          <div class="card cp">
+            <span class="label lp">Álcool</span>
+            <h4>R–OH</h4>
+            <p>–OH ligado a C <strong>saturado</strong> (sp³). Ex: etanol CH₃–CH₂–OH. Sufixo: <strong>-ol</strong>.</p>
+          </div>
+          <div class="card cl">
+            <span class="label ll">Enol</span>
+            <h4>C=C–OH</h4>
+            <p>–OH ligado a C da dupla. Instável — rapidamente isomeriza para aldeído/cetona.</p>
+          </div>
+          <div class="card cr">
+            <span class="label lr">Fenol</span>
+            <h4>Ar–OH</h4>
+            <p>–OH ligado diretamente ao anel aromático. Ácido fraco. Ex: fenol C₆H₅–OH.</p>
+          </div>
+          <div class="card cs">
+            <span class="label ls">Éter</span>
+            <h4>R–O–R'</h4>
+            <p>Oxigênio entre duas cadeias. Ex: éter etílico CH₃CH₂–O–CH₂CH₃. Sufixo: <strong>-oxi</strong> + nome.</p>
+          </div>
+          <div class="card ck">
+            <span class="label lk">Aldeído</span>
+            <h4>R–CHO</h4>
+            <p>Carbonila (C=O) na <strong>extremidade</strong> da cadeia. Ex: metanal (formaldeído) HCHO. Sufixo: <strong>-al</strong>.</p>
+          </div>
+          <div class="card cp">
+            <span class="label lp">Cetona</span>
+            <h4>R–CO–R'</h4>
+            <p>Carbonila no <strong>meio</strong> da cadeia. Ex: propanona (acetona) CH₃–CO–CH₃. Sufixo: <strong>-ona</strong>.</p>
+          </div>
+          <div class="card cl">
+            <span class="label ll">Ácido Carboxílico</span>
+            <h4>R–COOH</h4>
+            <p>Grupo carboxila na extremidade. Ex: ácido acético CH₃COOH. Sufixo: <strong>ácido…-oico</strong>.</p>
+          </div>
+          <div class="card cr">
+            <span class="label lr">Éster</span>
+            <h4>R–COO–R'</h4>
+            <p>Formado por ácido carboxílico + álcool (esterificação). Ex: acetato de etila. Sufixo: <strong>-ato de…</strong>.</p>
+          </div>
+        </div>
+
+        <div class="tip" style="margin-top:.8rem">
+          <strong>Dica de identificação:</strong> Viu –COOH? Ácido. Viu –CHO (C terminal)? Aldeído. Viu C=O no meio? Cetona. Viu –OH em C sp³? Álcool. –OH em anel? Fenol. –O– entre cadeias? Éter.
+        </div>
+      </div>
+    </div>
+
+    <div class="acc ac-p" id="eteres">
+      <button class="acc-btn" onclick="tog(this)">
+        🔄 Nomenclatura de Éteres <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>Dois sistemas de nomenclatura para éteres:</p>
+        <div class="grid2">
+          <div class="card cp">
+            <span class="label lp">Sistema Radicalar</span>
+            <h4>R + "oxi" + R' + "alcano"</h4>
+            <p>Nomeia-se o radical menor como prefixo com -oxi + cadeia maior.<br>
+            CH₃–O–CH₂CH₃ → <strong>metoxietano</strong><br>
+            CH₃–O–CH₃ → <strong>metoximetano</strong></p>
+          </div>
+          <div class="card cl">
+            <span class="label ll">Sistema Funcional (comum)</span>
+            <h4>R + "éter de" + R'</h4>
+            <p>Nomeia os dois radicais em ordem alfabética + "éter".<br>
+            CH₃–O–C₂H₅ → <strong>éter etílico metílico</strong><br>
+            C₂H₅–O–C₂H₅ → <strong>éter etílico</strong> (dietiléter)</p>
+          </div>
+        </div>
+        <div class="tip"><strong>IUPAC prefere</strong> o sistema radicalar (alcoxi). Ex: CH₃OCH₃ = dimetil éter ou metoximetano.</div>
+      </div>
+    </div>
+
+    <div class="acc ac-s" id="haletos">
+      <button class="acc-btn" onclick="tog(this)">
+        ⚡ Haletos Orgânicos (Halogenetos) <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>Composto orgânico com átomo de <strong>halogênio</strong> (F, Cl, Br, I) ligado a carbono.</p>
+        <div class="grid2">
+          <div class="card cs">
+            <span class="label ls">Nomenclatura</span>
+            <h4>halo + nome do hidrocarboneto</h4>
+            <p><strong>flúor → fluoro-</strong><br>
+            <strong>cloro → cloro-</strong><br>
+            <strong>bromo → bromo-</strong><br>
+            <strong>iodo → iodo-</strong></p>
+          </div>
+          <div class="card cp">
+            <span class="label lp">Exemplos</span>
+            <h4>Compostos Comuns</h4>
+            <p>CH₃Cl → <strong>clorometano</strong> (gás)</p>
+            <p>CHCl₃ → <strong>triclorometano</strong> (clorofórmio)</p>
+            <p>CCl₄ → <strong>tetraclorometano</strong></p>
+            <p>CF₂Cl₂ → <strong>CFC</strong> (freon — destruidor de ozônio)</p>
+          </div>
+        </div>
+        <div class="tip">O locante do halogênio deve ser o <strong>menor possível</strong>. Ex: CH₃–CHCl–CH₃ = <strong>2-cloropropano</strong>.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SOLUÇÕES ═══════════════════════════════ -->
+<div class="sc" id="solucoes">
+  <div class="sc-head">
+    <div class="sc-icon" style="background:var(--sky)">🧪</div>
+    <h2>Soluções Químicas</h2>
+  </div>
+  <div class="sc-body">
+
+    <h3>Misturas Homogêneas e Heterogêneas — Revisão + Coloides</h3>
+    <div class="grid3">
+      <div class="card ck">
+        <span class="label lk">Solução (Homogênea)</span>
+        <h4>Fase única</h4>
+        <p>Partículas &lt; 1 nm. Transparente, sem sedimentação. Ex: água + sal.</p>
+      </div>
+      <div class="card cl">
+        <span class="label ll">Coloide / Dispersão Coloidal</span>
+        <h4>Aparência homogênea</h4>
+        <p>Partículas 1–1000 nm. Não sedimenta facilmente. Ex: leite, névoa, gelatina, sangue.</p>
+      </div>
+      <div class="card cp">
+        <span class="label lp">Suspensão (Heterogênea)</span>
+        <h4>Sedimenta</h4>
+        <p>Partículas &gt; 1000 nm. Sedimenta e pode ser filtrada. Ex: areia + água.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card cs" style="margin-top:.5rem">
+        <span class="label ls">Efeito Tyndall</span>
+        <h4>Dispersão de Luz</h4>
+        <p>Coloides <strong>dispersam a luz</strong> (feixe visível). Soluções verdadeiras, não. Teste: apontar laser na amostra.</p>
+      </div>
+      <div class="card cr" style="margin-top:.5rem">
+        <span class="label lr">Movimento Browniano</span>
+        <h4>Agitação aleatória</h4>
+        <p>Partículas coloidais em movimento desordenado contínuo — por colisão com moléculas do solvente.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div id="coef">
+      <h3>Coeficiente de Solubilidade</h3>
+      <p>É a <strong>quantidade máxima de soluto</strong> (em g) que dissolve em 100 g de solvente a determinada temperatura.</p>
+      <div class="tip">
+        <strong>Temperatura ↑:</strong> Sólidos geralmente dissolvem mais. Gases dissolvem menos (por isso refrigerante quente perde gás mais rápido).
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div id="classif">
+      <h3>Classificação de Soluções</h3>
+      <div class="grid2">
+        <div class="card cs"><span class="label ls">Insaturada</span><p>Quantidade de soluto <strong>abaixo</strong> do coeficiente. Pode dissolver mais.</p></div>
+        <div class="card ck"><span class="label lk">Saturada sem corpo de fundo</span><p>Soluto na quantidade <strong>exatamente igual</strong> ao coeficiente. Equilíbrio.</p></div>
+        <div class="card cp"><span class="label lp">Saturada com corpo de fundo</span><p>Excesso de soluto no fundo (não dissolveu). Solução já está saturada.</p></div>
+        <div class="card cl"><span class="label ll">Supersaturada</span><p>Mais soluto do que o coeficiente permite — instável, obtida resfriando solução quente saturada.</p></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div id="condut">
+      <h3>Condutibilidade Elétrica de Soluções</h3>
+      <div class="grid2">
+        <div class="card cs">
+          <span class="label ls">Eletrolítica</span>
+          <h4>Conduz eletricidade</h4>
+          <p>Contém íons em solução. Ex: NaCl(aq), HCl(aq), NaOH(aq). Eletrólitos fortes: ionização completa.</p>
+        </div>
+        <div class="card cp">
+          <span class="label lp">Não Eletrolítica</span>
+          <h4>Não conduz</h4>
+          <p>Sem íons — moléculas permanecem intactas. Ex: glicose(aq), álcool(aq), sacarose(aq).</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div id="termo">
+      <h3>🌡️ Termoquímica — Processos Endo e Exotérmicos</h3>
+      <div class="grid2">
+        <div class="card cr">
+          <span class="label lr">Exotérmico</span>
+          <h4>Libera calor → ΔH &lt; 0</h4>
+          <p>Sistema perde energia para a vizinhança. Temperatura do ambiente sobe. Ex: combustão, respiração, neutralização.</p>
+        </div>
+        <div class="card ck">
+          <span class="label lk">Endotérmico</span>
+          <h4>Absorve calor → ΔH &gt; 0</h4>
+          <p>Sistema ganha energia da vizinhança. Temperatura do ambiente cai. Ex: fotossíntese, fusão do gelo, cozimento.</p>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="main">ΔH = H<sub>produtos</sub> – H<sub>reagentes</sub></div>
+        <div class="desc">ΔH &lt; 0 → exotérmico | ΔH &gt; 0 → endotérmico</div>
+      </div>
+      <div class="tip"><strong>Lei de Hess:</strong> ΔH da reação global = soma dos ΔH das etapas, independente do caminho.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ CONCENTRAÇÃO ═══════════════════════════════ -->
+<div class="sc" id="concentracao">
+  <div class="sc-head">
+    <div class="sc-icon" style="background:var(--lilac)">📐</div>
+    <h2>Unidades de Concentração & Cálculos</h2>
+  </div>
+  <div class="sc-body">
+
+    <!-- CONCENTRAÇÃO COMUM -->
+    <div class="acc ac-l" id="c-comum">
+      <button class="acc-btn open" onclick="tog(this)">
+        ⚗️ Concentração Comum (g/L) <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body show">
+        <div class="formula-box">
+          <div class="main">C = m / V</div>
+          <div class="desc">C em g/L | m = massa do soluto em g | V = volume da solução em L</div>
+        </div>
+        <div class="step-box">
+          <div class="step-title">Exemplo</div>
+          <ol>
+            <li>Dissolve-se 20 g de NaCl em água, obtendo 500 mL de solução.</li>
+            <li>V = 500 mL = 0,5 L</li>
+            <li>C = 20 / 0,5 = <strong>40 g/L</strong></li>
+          </ol>
+          <div class="result">✅ Concentração = 40 g/L</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOLARIDADE -->
+    <div class="acc ac-p" id="molaridade">
+      <button class="acc-btn" onclick="tog(this)">
+        🔢 Molaridade — Concentração Molar (mol/L) <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="formula-box">
+          <div class="main">M = n / V &nbsp;&nbsp;&nbsp; n = m / MM</div>
+          <div class="desc">M em mol/L | n = moles de soluto | V em L | MM = massa molar (g/mol)</div>
+        </div>
+        <div class="step-box">
+          <div class="step-title">Exemplo: Molaridade do NaOH</div>
+          <ol>
+            <li>4 g de NaOH (MM = 40 g/mol) em 200 mL de solução</li>
+            <li>n = 4/40 = 0,1 mol</li>
+            <li>V = 200 mL = 0,2 L</li>
+            <li>M = 0,1 / 0,2 = <strong>0,5 mol/L</strong></li>
+          </ol>
+          <div class="result">✅ Molaridade = 0,5 mol/L</div>
+        </div>
+        <div class="tip"><strong>Relação entre C e M:</strong> M = C / MM (sendo C em g/L e MM em g/mol).</div>
+      </div>
+    </div>
+
+    <!-- FRAÇÃO MOLAR -->
+    <div class="acc ac-s" id="fracaomolar">
+      <button class="acc-btn" onclick="tog(this)">
+        🍰 Fração Molar <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="formula-box">
+          <div class="main">X<sub>i</sub> = n<sub>i</sub> / n<sub>total</sub></div>
+          <div class="desc">X<sub>soluto</sub> + X<sub>solvente</sub> = 1 &nbsp;|&nbsp; A soma de todas as frações = 1</div>
+        </div>
+        <div class="step-box">
+          <div class="step-title">Exemplo</div>
+          <ol>
+            <li>0,5 mol de glicose dissolvida em 4,5 mol de água</li>
+            <li>n total = 0,5 + 4,5 = 5 mol</li>
+            <li>X(glicose) = 0,5/5 = <strong>0,1</strong></li>
+            <li>X(água) = 4,5/5 = <strong>0,9</strong></li>
+          </ol>
+          <div class="result">✅ X(glicose) = 0,1 | X(água) = 0,9 | Soma = 1 ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TÍTULO E PORCENTAGEM -->
+    <div class="acc ac-r" id="titulo">
+      <button class="acc-btn" onclick="tog(this)">
+        % Título e Porcentagem <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="grid3">
+          <div class="card cr">
+            <span class="label lr">% m/m</span>
+            <h4>Massa / Massa</h4>
+            <p><span class="formula">t = m<sub>soluto</sub>/m<sub>solução</sub> × 100</span><br>
+            Ex: 10 g NaCl em 100 g sol. → 10% m/m</p>
+          </div>
+          <div class="card ck">
+            <span class="label lk">% v/v</span>
+            <h4>Volume / Volume</h4>
+            <p><span class="formula">t = V<sub>soluto</sub>/V<sub>solução</sub> × 100</span><br>
+            Ex: álcool 96°GL = 96% v/v</p>
+          </div>
+          <div class="card cl">
+            <span class="label ll">% m/v</span>
+            <h4>Massa / Volume</h4>
+            <p><span class="formula">t = m<sub>soluto</sub>(g)/V<sub>solução</sub>(mL) × 100</span><br>
+            Ex: soro fisiológico 0,9% m/v</p>
+          </div>
+        </div>
+        <div class="tip">
+          <strong>Relação Título × Concentração:</strong> C (g/L) = t (% m/v) × 10 &nbsp;|&nbsp; C = t × d × 10 (quando d em g/mL e t em %)
+        </div>
+      </div>
+    </div>
+
+    <!-- PPM -->
+    <div class="acc ac-k" id="ppm">
+      <button class="acc-btn" onclick="tog(this)">
+        🔬 Partes por Milhão (ppm), Bilhão (ppb) e Trilhão (ppt) <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="grid3">
+          <div class="card ck">
+            <span class="label lk">ppm</span>
+            <h4>mg/L ou mg/kg</h4>
+            <p>1 ppm = 1 mg de soluto por L de solução (para soluções diluídas em água).<br>Equivale a 1 mg/kg ou 1 g/ton.</p>
+          </div>
+          <div class="card cs">
+            <span class="label ls">ppb</span>
+            <h4>μg/L</h4>
+            <p>1 ppb = 1 micrograma por litro (μg/L). Usado para contaminantes traço (metais pesados, pesticidas).</p>
+          </div>
+          <div class="card cp">
+            <span class="label lp">ppt</span>
+            <h4>ng/L</h4>
+            <p>1 ppt = 1 nanograma por litro (ng/L). Ultrarrastreios — detecção analítica avançada.</p>
+          </div>
+        </div>
+        <div class="tip"><strong>Conversão rápida:</strong> 1 ppm = 10⁻³ g/L = 1 mg/L &nbsp;|&nbsp; Limite de cloro em água potável: 0,5–2 ppm.</div>
+      </div>
+    </div>
+
+    <!-- MOLALIDADE -->
+    <div class="acc ac-l" id="molalidade">
+      <button class="acc-btn" onclick="tog(this)">
+        ⚖️ Molalidade (mol/kg) <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="formula-box">
+          <div class="main">w = n<sub>soluto</sub> / m<sub>solvente</sub>(kg)</div>
+          <div class="desc">w em mol/kg (molal) | Usado em cálculos de propriedades coligativas</div>
+        </div>
+        <div class="step-box">
+          <div class="step-title">Exemplo</div>
+          <ol>
+            <li>0,2 mol de NaCl em 500 g de água</li>
+            <li>m(solvente) = 500 g = 0,5 kg</li>
+            <li>w = 0,2 / 0,5 = <strong>0,4 mol/kg</strong></li>
+          </ol>
+          <div class="result">✅ Molalidade = 0,4 molal</div>
+        </div>
+        <div class="tip"><strong>Difere da molaridade:</strong> Molaridade usa volume da solução (muda com T). Molalidade usa massa do solvente (não muda com T) — mais precisa para propriedades coligativas.</div>
+      </div>
+    </div>
+
+    <!-- DENSIDADE -->
+    <div class="acc ac-p">
+      <button class="acc-btn" onclick="tog(this)">
+        🏋️ Densidade de Soluções <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="formula-box">
+          <div class="main">d = m<sub>solução</sub> / V<sub>solução</sub></div>
+          <div class="desc">d em g/mL | m em g | V em mL</div>
+        </div>
+        <div class="tip">
+          <strong>Relação C – d – t:</strong><br>
+          C (g/L) = <span class="formula">t × d × 10</span> &nbsp;&nbsp; (t = % m/m em decimal → use t/100 × d × 1000)
+          <br>Forma direta: C = (% m/m × d × 1000) / 100
+        </div>
+        <div class="step-box">
+          <div class="step-title">Exemplo: Ácido sulfúrico 98% m/m, d = 1,84 g/mL</div>
+          <ol>
+            <li>C = (98 × 1,84 × 1000) / (100 × 98) → usando M = (10 × d × %) / MM</li>
+            <li>MM(H₂SO₄) = 98 g/mol</li>
+            <li>M = (10 × 1,84 × 98) / 98 = 10 × 1,84 = <strong>18,4 mol/L</strong></li>
+          </ol>
+          <div class="result">✅ Molaridade do H₂SO₄ concentrado ≈ 18,4 mol/L</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DILUIÇÃO -->
+    <div class="acc ac-s" id="diluicao">
+      <button class="acc-btn" onclick="tog(this)">
+        💧 Diluição e Mistura de Soluções <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="formula-box">
+          <div class="main">C₁·V₁ = C₂·V₂</div>
+          <div class="desc">Diluição: moles de soluto se conservam. Usar mesma unidade para C e V.</div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-title">Exemplo de Diluição</div>
+          <ol>
+            <li>Solução de HCl 6 mol/L. Quero 500 mL de 0,2 mol/L. Quanto usar?</li>
+            <li>C₁V₁ = C₂V₂ → 6 × V₁ = 0,2 × 0,5</li>
+            <li>V₁ = 0,1/6 = <strong>0,0167 L = 16,7 mL</strong></li>
+          </ol>
+          <div class="result">✅ Retirar 16,7 mL da solução 6 mol/L e completar a 500 mL com água.</div>
+        </div>
+
+        <hr class="divider">
+        <p><strong>Mistura de Soluções — mesmo soluto (sem reação):</strong></p>
+        <div class="formula-box">
+          <div class="main">C<sub>f</sub> = (C₁V₁ + C₂V₂) / (V₁ + V₂)</div>
+          <div class="desc">Concentração final da mistura (mesma unidade)</div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-title">Exemplo: mistura de soluções de NaCl</div>
+          <ol>
+            <li>300 mL de NaCl 40 g/L + 200 mL de NaCl 60 g/L</li>
+            <li>C_f = (40×300 + 60×200) / (300+200)</li>
+            <li>C_f = (12000 + 12000) / 500 = 24000/500 = <strong>48 g/L</strong></li>
+          </ol>
+          <div class="result">✅ Concentração final = 48 g/L</div>
+        </div>
+
+        <hr class="divider">
+        <p><strong>Mistura com Reação Química (ex: ácido + base):</strong></p>
+        <div class="tip">
+          <strong>Método:</strong>
+          <ol style="padding-left:1.2rem; margin-top:.4rem;">
+            <li>Calcule os moles de cada reagente: n = C × V</li>
+            <li>Identifique o reagente em excesso</li>
+            <li>Subtraia os moles consumidos: n_excesso = n_maior – n_menor</li>
+            <li>Calcule C_final = n_excesso / V_total</li>
+          </ol>
+        </div>
+        <div class="step-box">
+          <div class="step-title">Exemplo: HCl + NaOH → NaCl + H₂O</div>
+          <ol>
+            <li>200 mL de HCl 0,3 mol/L + 300 mL de NaOH 0,2 mol/L</li>
+            <li>n(HCl) = 0,2 × 0,3 = 0,06 mol | n(NaOH) = 0,3 × 0,2 = 0,06 mol</li>
+            <li>Reação completa → nenhum em excesso → solução neutra!</li>
+            <li>Sobra apenas NaCl: n = 0,06 mol em 500 mL</li>
+            <li>C(NaCl) = 0,06/0,5 = <strong>0,12 mol/L</strong></li>
+          </ol>
+          <div class="result">✅ Solução neutra de NaCl 0,12 mol/L</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ QUIZ ═══════════════════════════════ -->
+<div class="sc" id="quiz">
+  <div class="sc-head">
+    <div class="sc-icon" style="background:#fce4ec">📝</div>
+    <h2>Mini Quiz — Química Orgânica & Soluções</h2>
+  </div>
+  <div class="sc-body">
+    <p>Responda todas e clique em <strong>"Verificar"</strong>. Boa sorte! 🌸</p>
+    <div class="quiz-wrap" id="qWrap"></div>
+    <button class="quiz-btn" onclick="check()">Verificar Respostas ✨</button>
+    <div class="score" id="score"></div>
+  </div>
+</div>
+
+</div><!-- /content -->
+</div><!-- /wrapper -->
+
+<script>
+// ── ACCORDION ──
+function tog(btn){
+  const body = btn.nextElementSibling;
+  btn.classList.toggle('open');
+  body.classList.toggle('show');
+}
+
+// ── QUIZ ──
+const qs = [
+  {
+    q:"O carbono com hibridização sp² possui qual geometria?",
+    o:["Tetraédrica","Trigonal plana","Linear","Piramidal"],
+    a:1,
+    e:"sp² tem 3 ligações sigma → geometria trigonal plana, ângulo ≈ 120°. Ocorre em alcenos e benzeno."
+  },
+  {
+    q:"Qual família de hidrocarboneto tem fórmula geral CₙH₂ₙ₋₂ e possui TRIPLA ligação?",
+    o:["Alcanos","Alcenos","Alcinos","Alcadienos"],
+    a:2,
+    e:"Alcinos: CₙH₂ₙ₋₂ com 1 tripla ligação. Ex: etino (acetileno) C₂H₂."
+  },
+  {
+    q:"O grupo funcional –CHO em posição terminal indica qual função?",
+    o:["Cetona","Ácido Carboxílico","Aldeído","Éster"],
+    a:2,
+    e:"Aldeído tem carbonila (C=O) na extremidade da cadeia: R–CHO. Sufixo: -al."
+  },
+  {
+    q:"'Efeito Tyndall' é uma propriedade característica de:",
+    o:["Soluções verdadeiras","Dispersões coloidais","Suspensões grossas","Solventes puros"],
+    a:1,
+    e:"Coloides dispersam a luz (feixe visível). Soluções verdadeiras não dispersam por terem partículas menores que 1 nm."
+  },
+  {
+    q:"Em 400 mL de solução há 8 g de NaOH (MM = 40 g/mol). Qual a molaridade?",
+    o:["0,2 mol/L","0,5 mol/L","2 mol/L","0,08 mol/L"],
+    a:0,
+    e:"n = 8/40 = 0,2 mol | V = 0,4 L | M = 0,2/0,4 = 0,5 mol/L... aguarda — n = 0,2 mol e V = 0,4 L → M = 0,5. Ops, corrija: M = 0,2/0,4 = 0,5. A opção correta aqui é 0,5 mol/L."
+  },
+  {
+    q:"Em 400 mL de solução há 8 g de NaOH (MM = 40 g/mol). Qual a molaridade?",
+    o:["0,2 mol/L","0,5 mol/L","2 mol/L","0,08 mol/L"],
+    a:1,
+    e:"n = 8/40 = 0,2 mol | V = 0,4 L | M = 0,2/0,4 = 0,5 mol/L ✓"
+  },
+  {
+    q:"Para separar álcool e água (miscíveis, PEs diferentes), usa-se:",
+    o:["Decantação","Filtração","Destilação fracionada","Centrifugação"],
+    a:2,
+    e:"Destilação fracionada separa líquidos miscíveis com pontos de ebulição diferentes. Álcool ≈ 78°C; água = 100°C."
+  },
+  {
+    q:"Numa mistura de 200 mL (C=50 g/L) com 300 mL (C=20 g/L) do mesmo soluto, a concentração final é:",
+    o:["35 g/L","32 g/L","70 g/L","30 g/L"],
+    a:1,
+    e:"C_f = (50×200 + 20×300)/(200+300) = (10000+6000)/500 = 16000/500 = 32 g/L."
+  },
+  {
+    q:"O substituto em posição 'para' no benzeno está em qual localização?",
+    o:["Carbono adjacente (1,2)","Separado por 1 C (1,3)","Oposto no anel (1,4)","Fora do anel"],
+    a:2,
+    e:"Para (p-) = posição 1,4 — os dois grupos ficam em carbonos opostos do anel benzênico."
+  },
+  {
+    q:"Qual concentração é expressa em mol/kg de solvente?",
+    o:["Molaridade","Concentração comum","Molalidade","Fração molar"],
+    a:2,
+    e:"Molalidade (w) = n(soluto) / m(solvente em kg). Usada em propriedades coligativas."
+  },
+  {
+    q:"O CFC (freon) pertence à função:",
+    o:["Álcool","Éter","Haleto Orgânico","Aldeído"],
+    a:2,
+    e:"CFC = clorofluorcarboneto — haleto orgânico com F e Cl ligados ao carbono. Famoso por destruir a camada de ozônio."
+  },
+  {
+    q:"Uma reação que LIBERA calor tem ΔH:",
+    o:["Positivo (ΔH > 0)","Negativo (ΔH < 0)","Igual a zero","Indefinido"],
+    a:1,
+    e:"Exotérmico: sistema perde energia → ΔH < 0. Endotérmico (absorve): ΔH > 0."
+  }
+];
+
+// remove duplicata (índice 4 era duplicado — mantém de 5 em diante)
+const questions = qs.filter((_,i)=> i !== 4);
+
+function build(){
+  const w = document.getElementById('qWrap');
+  questions.forEach((item,i)=>{
+    const d = document.createElement('div');
+    d.className='qq'; d.id=`q${i}`;
+    d.innerHTML=`<p class="qt">${i+1}. ${item.q}</p>
+    <div class="opts">${item.o.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join('')}</div>
+    <div class="fb" id="fb${i}"></div>`;
+    w.appendChild(d);
+  });
+}
+
+function check(){
+  let sc=0;
+  questions.forEach((item,i)=>{
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    const qd=document.getElementById(`q${i}`);
+    const fb=document.getElementById(`fb${i}`);
+    if(!sel){fb.textContent='⚠️ Selecione uma opção!';fb.className='fb show err';qd.className='qq err';return;}
+    if(parseInt(sel.value)===item.a){sc++;fb.textContent=`✅ Correto! ${item.e}`;fb.className='fb show ok';qd.className='qq ok';}
+    else{fb.textContent=`❌ Incorreto. ${item.e}`;fb.className='fb show err';qd.className='qq err';}
+  });
+  const el=document.getElementById('score');
+  const p=Math.round(sc/questions.length*100);
+  const em=p>=80?'🌸 Arrasou!':p>=60?'✨ Quase lá!':'💪 Revise e tente de novo!';
+  el.textContent=`Você acertou ${sc} de ${questions.length} (${p}%) — ${em}`;
+  el.className='score show';
+  el.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+build();
+</script>
+</body>
+</html>
